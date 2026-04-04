@@ -15,7 +15,6 @@ class CloudService(BaseHTTPRequestHandler):
             self.process_request(params)
 
         else:
-            # Handle unknown paths (IMPORTANT FIX)
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
@@ -75,7 +74,6 @@ class CloudService(BaseHTTPRequestHandler):
         self.wfile.write(result.encode())
 
 
-# Start server
 if __name__ == "__main__":
     server = HTTPServer(("127.0.0.1", 8000), CloudService)
     print("Cloud service running on port 8000...")
